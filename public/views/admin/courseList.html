@@ -1,0 +1,35 @@
+<div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+               <ul class="breadcrumb">
+                   <li><a ui-sref="app.admin">Admin</a></li>
+                   <li class="active">Courses</li>
+               </ul>
+            </div>
+            <div class="col-xs-12">
+               <h3>Courses Admin</h3>
+               <hr>
+               <a ui-sref="app.adminCourseAdd">Add</a>
+            </div>
+        </div>
+        <div class="row row-content">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th><th>Description</th><th>From</th><th>To</th><th>Active</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="course in courses">
+                    <td>
+                    <a ui-sref="app.adminCourseEdit({id: course._id})">{{course.name}}</a>
+                    </td>
+                    <td>{{course.description}}</td>
+                    <td>{{course.start_date | date :  "MM/dd/y"}}</td>
+                    <td>{{course.end_date | date :  "MM/dd/y"}}</td>
+                    <td>{{course.is_active}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+</div>

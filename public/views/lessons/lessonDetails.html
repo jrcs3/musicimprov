@@ -1,0 +1,30 @@
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+               <ul class="breadcrumb">
+                   <li><a ui-sref="app">Home</a></li>
+                   <li><a ui-sref="app.lessonList">Lessons</a></li>
+                   <li class="active">{{lesson.title}}</li>
+               </ul>
+            </div>
+            <div class="col-xs-12">
+               <h3>{{lesson.title}}</h3>
+               <hr>
+            </div>
+        </div>
+        <div class="row row-content">
+            <div class="col-xs-12" ng-if="!showLesson">
+                <h3>{{message}}</h3>
+            </div>
+            <div class="col-xs-12" ng-if="showLesson">
+                <button class="btn btn-xs btn-primary pull-right"
+                    type="button" ui-sref="app.lessonList">
+                    Back to Lessons
+                </button> 
+                <div class="media">
+                    <div>{{lesson.text_content}}</div>
+                </div>
+            </div>
+        </div>
+
+    </div>

@@ -1,0 +1,56 @@
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    <script>
+        tinymce.PluginManager.add('stylebuttons', function (editor, url) {
+            ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'].forEach(function (name) {
+                editor.addButton("style-" + name, {
+                    tooltip: "Toggle " + name,
+                    text: name.toLowerCase(),
+                    onClick: function () { editor.execCommand('mceToggleFormat', false, name); },
+                    onPostRender: function () {
+                        var self = this, setup = function () {
+                            editor.formatter.formatChanged(name, function (state) {
+                                self.active(state);
+                            });
+                        };
+                        editor.formatter ? setup() : editor.on('init', setup);
+                    }
+                })
+            });
+        });
+
+        tinymce.init({
+            selector: 'textarea',
+            toolbar1: `undo redo | insert | styleselect | bold italic underline | alignleft aligncenter alignright | bullist numlist outdent indent`,
+            toolbar2: `print preview media | forecolor backcolor emoticons | link image table | style-p style-h1 style-h2 style-h3 style-h4 `,
+            plugins: "charmap hr anchor pagebreak insertdatetime nonbreaking toc stylebuttons link image lists media print preview textcolor colorpicker emoticons table wordcount ",
+        });
+
+        //tinymce.init({ selector: 'textarea' });
+    </script>
+
+<div id="editor" data-placeholder="Go on, start editing..."></div>
+<script>
+  var editor = new wysihtml5.Editor('editor');
+</script>        
+
+<div id="toolbar">
+  <a data-wysihtml5-command="bold">bold</a>
+  <a data-wysihtml5-command="italic">italic</a>
+  <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1">H1</a>
+  <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="p">P</a>
+</div>
+
+<!-- element to edit -->
+<div id="editor" data-placeholder="Go on, start editing..."></div>        
+<a href="http://wysihtml.com/">wysihtml</a>
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  var editor = new wysihtml5.Editor('editor', {
+    toolbar: 'toolbar',
+    parserRules:  wysihtml5ParserRules
+  });
+  alert('hi');
+});
+</script>

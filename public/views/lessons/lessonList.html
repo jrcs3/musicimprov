@@ -1,0 +1,36 @@
+<div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+               <ul class="breadcrumb">
+                   <li><a ui-sref="app">Home</a></li>
+                   <li class="active">Lessons</li>
+               </ul>
+            </div>
+            <div class="col-xs-12">
+               <h3>Lessons</h3>
+               <hr>
+            </div>
+            <div class="col-sm-12">
+                <select ng-model="CourseFilter" class="form-control" name="course_id" id="course_id">
+                    <option ng-repeat="item in courseList" value="{{item._id}}">{{item.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row row-content">
+            <table class="table table-striped">
+                <thead>
+                <tr><th>Title</th><th>Chapter</th><th>Description</th><th>Course</th></tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="lesson in lessons | filter:CourseFilter">
+                    <td>
+                    <a ui-sref="app.lessonDetails({id: lesson._id})">{{lesson.title}}</a>
+                    </td>
+                    <td>{{lesson.chapter_number}}</td>
+                    <td>{{lesson.text_description}}</td>
+                    <td>{{lesson.course_id.name}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+</div>

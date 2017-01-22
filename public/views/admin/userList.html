@@ -1,0 +1,24 @@
+<div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+               <ul class="breadcrumb">
+                   <li><a ui-sref="app">Home</a></li>
+                   <li class="active">Users Admin</li>
+               </ul>
+            </div>
+            <div class="col-xs-12">
+               <h3>Users Admin</h3>
+               <hr>
+            </div>
+        </div>
+        <div class="row row-content">
+            <table class="table table-striped">
+                <tr><th>User Name</th><th>Name</th><th>Admin</th></tr>
+                <tr ng-repeat="user in users">
+                    <td><a ui-sref="app.adminUserDetails({id: user._id})">{{user.username}}</a></td>
+                    <td><div>{{user.firstname}} {{user.lastname}}</div></td>
+                    <td><div>{{user.admin}}</div></td>
+                </tr>
+            </table>
+        </div>
+</div>

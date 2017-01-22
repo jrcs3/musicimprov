@@ -1,0 +1,51 @@
+{
+  "name": "musicimprov",
+  "version": "0.0.1",
+  "description": "Musical Improv App for Courcera",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "musical",
+    "improv"
+  ],
+  "authors": [
+    "ajacste"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.5.5",
+    "angular-ui-router": "~0.2.18",
+    "angular-mocks": "~1.5.5",
+    "angular-resource": "~1.5.5",
+    "angular-route": "~1.5.5",
+    "bootstrap": "~3.3.6",
+    "font-awesome": "fontawesome#~4.6.1",
+    "ng-dialog": "ngDialog#^0.6.6",
+    "wysihtml": "^0.5.5",
+    "jquery": "2.2.4"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    },
+    "font-awesome": {
+      "main": [
+        "css/font-awesome.css"
+      ]
+    }
+  },
+  "resolutions": {
+    "angular": "~1.5.5"
+  }
+}

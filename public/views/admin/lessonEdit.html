@@ -1,0 +1,66 @@
+<div class="row row-content">
+    <div class="col-xs-12 col-sm-9" >
+        <h2>Edit Lesson</h2>
+        <h3>{{message}}</h3>
+        <form class="form-horizontal" name="editForm" ng-submit="sendEdit()" novalidate>
+            <input type="hidden" name="id" name="id" ng-model="lesson.id"/>
+            <div class="form-group">
+                <label for="title" class="col-sm-2 control-label">Title</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="title" id="title" ng-model="lesson.title" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="course_id" class="col-sm-2 control-label">Course</label>
+                <div class="col-sm-10">
+                    <select class="form-control" name="course_id" id="course_id" ng-model="lesson.course_id" >
+                        <option ng-repeat="item in courseList" value="{{item._id}}">{{item.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="chapter_number" class="col-sm-2 control-label">Chapter Number</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="chapter_number" id="chapter_number" ng-model="lesson.chapter_number" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="is_premium" class="col-sm-2 control-label">Is Premium</label>
+                <div class="col-sm-10">
+                    <input type="checkbox" class="form-control" name="is_premium" id="is_premium" ng-checked="lesson.is_premium" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="sort_order" class="col-sm-2 control-label">Sort Order</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="sort_order" id="sort_order" ng-model="lesson.sort_order" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="text_description" class="col-sm-2 control-label">Description</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="text_description" id="text_description" ng-model="lesson.text_description" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="text_content" class="col-sm-2 control-label">Content</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="text_content" id="text_content" ng-model="lesson.text_content" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary" id="btn-save" name="btn-save">Save Lesson</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-12 col-sm-2">
+                    &nbsp;
+                </div>
+                <div class="col-xs-12 col-sm-10">
+                    <a ui-shref="">List</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
