@@ -19,6 +19,8 @@ var LessonListRouter = require('./routes/lessonListRouter');
 var UserRouter = require('./routes/userRouter');
 var CourseRouter = require('./routes/courseRouter');
 var EnrollmentRouter = require('./routes/enrollmentRouter');
+// This is used to create an admin, get rid of this and the use statement below when done
+var BootstrapUserRouter = require('./routes/bootstrapUserRouter');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
@@ -30,7 +32,9 @@ app.use('/lessons', LessonRouter);
 app.use('/lessonList', LessonListRouter);  
 app.use('/users', UserRouter);  
 app.use('/courses', CourseRouter);  
-app.use('/enrollment', EnrollmentRouter);  
+app.use('/enrollment', EnrollmentRouter); 
+// This is used to create an admin, get rid of this and the require statement above when done
+app.use('/bootstrapuser', BootstrapUserRouter); 
 
 var server = app.listen(process.env.PORT || 3000, function() {
    var port = server.address().port;

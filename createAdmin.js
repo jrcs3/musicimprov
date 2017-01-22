@@ -8,7 +8,9 @@ var passport = require('passport');
 var authenticate = require('./authenticate');
 //var Promise = require('promise');
 
-mongoose.connect('mongodb://localhost/MusicalImprov');
+var connectionString = process.env.MONGODB_URI || 'mongodb://localhost/MusicalImprov';
+
+mongoose.connect(connectionString);
 
 app = express();
 

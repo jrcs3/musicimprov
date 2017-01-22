@@ -13,12 +13,11 @@ var enrollmentListRouter = express.Router();
 enrollmentListRouter.route('/register/:courseId/:userId')
 .put(function(req, res, next) {
     var findParms = {'course_id': req.params.courseId, 'user_id':req.params.userId};
-    console.log(findParms);
+    
     Enrollments.find(findParms)
         .exec(function(err, enrollment) {
             if (err) next(err);
-            console.log(enrollment);
-            console.log(enrollment.length);
+
             if (enrollment.length === 0) {
                 var newEnrollment = { 
                     course_id: findParms.course_id, 
