@@ -4,7 +4,11 @@ var bodyParser = require('body-parser');
 var passport = require('passport');
 var authenticate = require('./authenticate');
 
-var connectionString = process.env.CONNECTION || 'mongodb://localhost/MusicalImprov';
+var connectionString = process.env.MONGODB_URI || 'mongodb://localhost/MusicalImprov';
+
+console.log("my Info");
+console.log(connectionString);
+console.log(process.env.PORT);
 
 mongoose.connect(connectionString);
 
@@ -29,7 +33,6 @@ app.use('/courses', CourseRouter);
 app.use('/enrollment', EnrollmentRouter);  
 
 var server = app.listen(process.env.PORT || 3000, function() {
-    var host = server.address().address;
-    var port = server.address().port;
-    console.log("Example app listening at http://%s;%s", host, port);
+   var port = server.address().port;
+    console.log("App now running on port", port);
 });
