@@ -35,10 +35,19 @@ angular.module('musicImprovApp')
         });
     
 }])
-.controller('LessonListController', ['$scope', 'LessonListFactory', 'CourseListFactory', function ($scope, LessonListFactory, CourseListFactory) {
+.controller('LessonListController', ['$scope', 'LessonListFactory', 'CourseListFactory', 'AuthFactory', function ($scope, LessonListFactory, CourseListFactory, AuthFactory) {
     $scope.showMenu = true;
 
     $scope.CourseFilter = '';
+
+    $scope.isAdmin = true;
+    
+    // if(AuthFactory.isAuthenticated()) {
+    //     $scope.loggedIn = true;
+    //     $scope.username = AuthFactory.getUsername();
+    //     $scope.isAdmin = AuthFactory.getIsAdmin();
+    // }
+    
 
     CourseListFactory.getCourses().query(
         function (courseResponse) {

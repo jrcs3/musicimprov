@@ -1,4 +1,5 @@
 <div class="container">
+    <div ng-if="isAdmin">
         <div class="row">
             <div class="col-xs-12">
                <ul class="breadcrumb">
@@ -30,4 +31,10 @@
                 </tr>
             </table>
         </div>
+    </div>
+    <div ng-if="!isAdmin">
+        <div class="row">
+            <h2>Unauthorized</h2>
+        </div>
+    </div>
 </div>
